@@ -1,4 +1,5 @@
 import numpy as np
+import plotly.graph_objects as go
 
 
 def multitransp(A):
@@ -35,3 +36,63 @@ def norm_SPD(point, tangent_vector):
     return np.sqrt(
         np.tensordot(p_inv_tv, multitransp(p_inv_tv), axes=tangent_vector.ndim)
     )
+
+
+def plot_results_R(res, labels, title, legends):
+    fig = go.Figure()
+    N = res.shape[0] // 3
+    unique_labels = np.unique(labels)
+    all_col = ["blue", "red", "green"]
+    for i in range(3):
+        idx = np.where(labels == unique_labels[i])[0]
+        fig = fig.add_trace(
+            go.Scatter3d(
+                x=res[idx, 0, 0],
+                y=res[idx, 0, 1],
+                z=res[idx, 1, 1],
+                mode="markers",
+                name=legends[i],
+                marker=dict(size=8, color=all_col[i], opacity=0.9),
+            )
+        )
+
+    fig.update_layout(
+        title=title,
+        scene=dict(xaxis_title="a", yaxis_title="b", zaxis_title="c"),
+        width=900,
+        height=700,
+        autosize=False,
+        margin=dict(t=30, b=0, l=0, r=0),
+        template="plotly_white",
+    )
+    fig.show()
+
+
+def plot_results_E(res, labels, title, legends):
+    fig = go.Figure()
+    N = res.shape[0] // 3
+    unique_labels = np.unique(labels)
+    all_col = ["blue", "red", "green"]
+    for i in range(3):
+        idx = np.where(labels == unique_labels[i])[0]
+        fig = fig.add_trace(
+            go.Scatter3d(
+                x=res[idx, 0],
+                y=res[idx, 1],
+                z=res[idx, 2],
+                mode="markers",
+                name=legends[i],
+                marker=dict(size=8, color=all_col[i], opacity=0.9),
+            )
+        )
+
+    fig.update_layout(
+        title=title,
+        scene=dict(xaxis_title="x", yaxis_title="y", zaxis_title="z"),
+        width=900,
+        height=700,
+        autosize=False,
+        margin=dict(t=40, b=0, l=0, r=0),
+        template="plotly_white",
+    )
+    fig.show()

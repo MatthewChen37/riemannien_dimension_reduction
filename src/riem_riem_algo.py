@@ -13,7 +13,7 @@ import warnings
 from time import time
 
 
-class Riemannian_t_SNE:
+class Riem_Riem_tSNE:
     """Riemannian version of t-SNE algorithm. Reduces a set of c x c SPD matrices into a set of 2 x 2 SPD matrices.
 
     Parameters
@@ -56,8 +56,8 @@ class Riemannian_t_SNE:
 
         Parameters
         ----------
-         X : ndarray, shape (n_matrices, n_channels, n_channels)
-             Set of SPD matrices to reduce.
+        X : ndarray, shape (n_matrices, n_channels, n_channels)
+            Set of SPD matrices to reduce.
 
         Returns
         ----------
@@ -80,8 +80,8 @@ class Riemannian_t_SNE:
 
         Parameters
         ----------
-         Y : ndarray, shape (n_matrices, 2, 2)
-             Set of SPD matrices.
+        Y : ndarray, shape (n_matrices, 2, 2)
+            Set of SPD matrices.
 
         Returns
         ----------
@@ -108,7 +108,7 @@ class Riemannian_t_SNE:
         P : ndarray, shape (n_matrices, n_matrices)
             The matrix of the symmetrized conditional probabilities of X.
         Q : ndarray, shape (n_matrices, n_matrices)
-             The matrix of the low dimensional similarities conditional probabilities of Y.
+            The matrix of the low dimensional similarities conditional probabilities of Y.
 
         Returns
         ----------
@@ -127,7 +127,7 @@ class Riemannian_t_SNE:
         P : ndarray, shape (n_matrices, n_matrices)
             The matrix of the symmetrized conditional probabilities of X.
         Q : ndarray, shape (n_matrices, n_matrices)
-             The matrix of the low dimensional similarities conditional probabilities of Y.
+            The matrix of the low dimensional similarities conditional probabilities of Y.
         Dsq : ndarray, shape (n_matrices, n_matrices)
             The Riemannian distance matrix of Y.
 
@@ -278,7 +278,7 @@ class Riemannian_t_SNE:
         plt.show()
 
 
-class Riemannian_MDS:
+class Riem_Riem_MDS:
     """Riemannian version of MDS algorithm. Reduces a set of c x c SPD matrices into a set of 2 x 2 SPD matrices.
 
     Parameters
@@ -314,7 +314,7 @@ class Riemannian_MDS:
         Z : ndarray, shape (n_matrices, 2, 2)
             Set of 2 x 2 SPD matrices
         D : ndarray, shape (n_matrices, n_matrices)
-             The matrix of the pairwise Riemannian distances for the high dimensional set of SPD matrices.
+            The matrix of the pairwise Riemannian distances for the high dimensional set of SPD matrices.
 
         Returns
         ----------
@@ -326,14 +326,14 @@ class Riemannian_MDS:
         return np.sum(((D_Z - D) ** 2)[np.tril_indices(N)])
 
     def riemannian_gradient(self, Z, D):
-        """Computed the Riemannian gradient of the loss of the t-SNE.
+        """Computed the Riemannian gradient of the loss of the MDS.
 
         Parameters
         ----------
         Z : ndarray, shape (n_matrices, 2, 2)
             Set of 2 x 2 SPD matrices
         D : ndarray, shape (n_matrices, n_matrices)
-             The matrix of the pairwise Riemannian distances for the high dimensional set of SPD matrices.
+            The matrix of the pairwise Riemannian distances for the high dimensional set of SPD matrices.
 
         Returns
         ----------
