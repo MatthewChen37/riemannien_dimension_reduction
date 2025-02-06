@@ -13,6 +13,7 @@ ENV/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+.jupyter/desktop-workspaces
 
 # Ignore macOS specific files
 .DS_Store
