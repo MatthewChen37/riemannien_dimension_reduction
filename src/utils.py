@@ -65,6 +65,7 @@ def plot_results_R(res, labels, title, legends):
         margin=dict(t=30, b=0, l=0, r=0),
         template="plotly_white",
     )
+    fig.write_html(f"{title}.html")
     fig.show()
 
 
@@ -95,4 +96,5 @@ def plot_results_E(res, labels, title, legends):
         margin=dict(t=40, b=0, l=0, r=0),
         template="plotly_white",
     )
+    fig.write_html(f"{title}.html")
     fig.show()

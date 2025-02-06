@@ -1,4 +1,41 @@
-*.DS_Store
-*.ipynb_checkpoints
-*.jupyter
-*__pycache__
+# Ignore Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Ignore compiled files
+*.o
+*.so
+*.a
+*.out
+
+# Ignore build directories
+build/
+dist/
+*.egg-info/
