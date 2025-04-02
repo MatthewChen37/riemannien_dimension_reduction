@@ -42,8 +42,8 @@ def plot_results_R(res, labels, title, legends):
     fig = go.Figure()
     N = res.shape[0] // 3
     unique_labels = np.unique(labels)
-    all_col = ["blue", "red", "green"]
-    for i in range(3):
+    all_col = ["blue", "red", "green", "yellow", "purple", "cyan"]
+    for i in range(len(unique_labels)):
         idx = np.where(labels == unique_labels[i])[0]
         fig = fig.add_trace(
             go.Scatter3d(
@@ -66,9 +66,6 @@ def plot_results_R(res, labels, title, legends):
         template="plotly_white",
     )
 
-    #plt.savefig(f"{title}.png")
-    #fig.write_html(f"{title}.html")
-    #fig.show()
     return fig
 
 
