@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.utils import *
+from .utils import *
 
 from pyriemann.utils.distance import distance_riemann, pairwise_distance
 from pyriemann.utils.base import sqrtm, invsqrtm, logm

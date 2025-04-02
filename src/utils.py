@@ -65,8 +65,11 @@ def plot_results_R(res, labels, title, legends):
         margin=dict(t=30, b=0, l=0, r=0),
         template="plotly_white",
     )
-    fig.write_html(f"{title}.html")
-    fig.show()
+
+    #plt.savefig(f"{title}.png")
+    #fig.write_html(f"{title}.html")
+    #fig.show()
+    return fig
 
 
 def plot_results_E(res, labels, title, legends):
